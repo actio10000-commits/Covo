@@ -54,7 +54,7 @@ function Nav() {
         {!scrolled && (
           <motion.nav key="bar" initial={navEnter} animate={navVisible} exit={navExit} transition={navSpring}
             className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-16 py-4"
-            style={{ background: "rgba(5,5,5,0.88)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}>
+            style={{ background: "rgba(2,12,16,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(0,229,255,0.1)" }}>
             <a href="#" className="no-underline font-bold text-base tracking-tight logo-gradient">Covo</a>
             <ul className="hidden md:flex items-center gap-7 list-none">
               {navLinks.map(item => (
@@ -94,7 +94,7 @@ function Nav() {
           <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease }}
             className="fixed left-0 right-0 z-40 flex flex-col px-5 py-6 gap-5 md:hidden"
-            style={{ top: scrolled ? "72px" : "57px", background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(5,5,5,0.97)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}>
+            style={{ top: scrolled ? "72px" : "57px", background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(2,12,16,0.97)", borderBottom: "1px solid rgba(0,229,255,0.1)" }}>
             {navLinks.map(item => (
               <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, "-")}`} onClick={() => setOpen(false)}
                 className={`no-underline text-base transition-colors ${scrolled ? "text-gray-700 hover:text-gray-900" : "text-white/60 hover:text-white"}`}>{item}</a>
@@ -112,14 +112,14 @@ function Nav() {
 function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-6 pt-24 pb-20 overflow-hidden">
-      <Waves strokeColor="rgba(139,92,246,0.18)" backgroundColor="#050505" />
+      <Waves strokeColor="rgba(0,229,255,0.14)" backgroundColor="#020c10" />
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <div className="hero-blob-purple" />
         <div className="hero-blob-blue" />
       </div>
       <div className="relative z-10 flex flex-col items-center">
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1, ease }}
-          className="text-violet-400/70 text-xs tracking-[3px] uppercase mb-6 font-medium">
+          className="text-cyan-400/70 text-xs tracking-[3px] uppercase mb-6 font-medium">
           Personal Home Robotics
         </motion.p>
         <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease }}
@@ -137,7 +137,7 @@ function Hero() {
             Pre-order — from $1,299
           </motion.a>
           <motion.a href="#gallery" whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}
-            className="text-white/60 no-underline px-6 py-3.5 rounded-md text-sm hover:text-white border border-white/10 hover:border-violet-500/30 transition-colors text-center">
+            className="text-white/60 no-underline px-6 py-3.5 rounded-md text-sm hover:text-white border border-white/10 hover:border-cyan-400/30 transition-colors text-center">
             See the robot →
           </motion.a>
         </motion.div>
@@ -215,9 +215,9 @@ function Features() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px feature-grid">
           {features.map((f, i) => (
             <motion.div key={f.title} {...fadeUp(i * 0.07)}
-              whileHover={{ backgroundColor: "rgba(124,58,237,0.08)", transition: { duration: 0.2 } }}
+              whileHover={{ backgroundColor: "rgba(0,229,255,0.06)", transition: { duration: 0.2 } }}
               className="p-6 md:p-8 feature-card cursor-default">
-              <p className="text-violet-500/50 text-xs font-mono mb-5">{f.label}</p>
+              <p className="text-cyan-400/50 text-xs font-mono mb-5">{f.label}</p>
               <h3 className="text-white text-base font-medium mb-2">{f.title}</h3>
               <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
             </motion.div>
@@ -240,19 +240,19 @@ const galleryItems = [
   {
     title: "Voice Interface",
     sub: "On-device AI — no cloud",
-    gradient: "linear-gradient(135deg, #1a0a2e 0%, #2d1b69 100%)",
+    gradient: "linear-gradient(135deg, #001520 0%, #00304a 100%)",
     icon: "🎙️",
   },
   {
     title: "Smart Navigation",
     sub: "3D LiDAR mapping",
-    gradient: "linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%)",
+    gradient: "linear-gradient(135deg, #001a12 0%, #002a20 100%)",
     icon: "🗺️",
   },
   {
     title: "Carry & Deliver",
     sub: "Up to 12 lbs capacity",
-    gradient: "linear-gradient(135deg, #0f1a0a 0%, #1a3a20 100%)",
+    gradient: "linear-gradient(135deg, #001422 0%, #003344 100%)",
     icon: "📦",
   },
 ]
@@ -284,8 +284,8 @@ function ProductGallery() {
               <p className="text-white font-bold text-lg">Covo Pro</p>
               <p className="text-white/55 text-sm">Full-home assistant</p>
             </div>
-            <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase text-violet-300"
-              style={{ background: "rgba(124,58,237,0.3)", border: "1px solid rgba(139,92,246,0.4)" }}>
+            <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase text-cyan-300"
+              style={{ background: "rgba(0,150,190,0.3)", border: "1px solid rgba(0,229,255,0.45)" }}>
               Ships Q3 2026
             </div>
           </motion.div>
@@ -348,7 +348,7 @@ function HowItWorks() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {steps.map((s, i) => (
             <motion.div key={s.title} {...fadeUp(i * 0.1)}>
-              <p className="text-blue-400/60 text-xs font-mono mb-4">0{i + 1}</p>
+              <p className="text-cyan-400/60 text-xs font-mono mb-4">0{i + 1}</p>
               <h3 className="text-white font-medium mb-2">{s.title}</h3>
               <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
@@ -372,7 +372,7 @@ function VideoDemo() {
         <motion.div {...fadeUp(0.1)}
           whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
           className="relative rounded-2xl overflow-hidden cursor-pointer group"
-          style={{ background: "linear-gradient(135deg, #0d0520 0%, #0a0a1a 100%)", aspectRatio: "16/9", border: "1px solid rgba(139,92,246,0.15)" }}>
+          style={{ background: "linear-gradient(135deg, #021018 0%, #020c14 100%)", aspectRatio: "16/9", border: "1px solid rgba(0,229,255,0.13)" }}>
           <img
             src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=60&auto=format"
             alt="Covo demo"
@@ -382,7 +382,7 @@ function VideoDemo() {
             <motion.div
               whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}
               className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center"
-              style={{ background: "rgba(124,58,237,0.35)", border: "2px solid rgba(139,92,246,0.6)", boxShadow: "0 0 40px rgba(139,92,246,0.3)" }}>
+              style={{ background: "rgba(0,150,190,0.3)", border: "2px solid rgba(0,229,255,0.55)", boxShadow: "0 0 40px rgba(0,229,255,0.25)" }}>
               <span className="text-white text-xl ml-1">▶</span>
             </motion.div>
             <p className="text-white/50 text-sm">Product demo · 3:24</p>
@@ -450,8 +450,8 @@ function Pricing() {
 
           {/* Countdown */}
           <div className="mt-6 inline-flex items-center gap-3 px-5 py-3 rounded-xl"
-            style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(139,92,246,0.2)" }}>
-            <span className="text-violet-400/70 text-xs tracking-widest uppercase">Early bird ends in</span>
+            style={{ background: "rgba(0,229,255,0.07)", border: "1px solid rgba(0,229,255,0.18)" }}>
+            <span className="text-cyan-400/70 text-xs tracking-widest uppercase">Early bird ends in</span>
             <div className="flex items-center gap-2">
               {[["d", d], ["h", h], ["m", m], ["s", s]].map(([u, v]) => (
                 <span key={u as string} className="flex flex-col items-center">
@@ -469,27 +469,27 @@ function Pricing() {
               whileHover={{ y: -4, transition: { duration: 0.25, ease } }}
               className={`p-6 md:p-8 flex flex-col ${plan.featured ? "pricing-card-featured" : "pricing-card"}`}>
               <div className="flex items-start justify-between mb-6">
-                <p className={`text-xs tracking-widest uppercase ${plan.featured ? "text-violet-400/80" : "text-white/40"}`}>{plan.name}</p>
+                <p className={`text-xs tracking-widest uppercase ${plan.featured ? "text-cyan-400/80" : "text-white/40"}`}>{plan.name}</p>
                 {plan.featured && (
                   <motion.span initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 }}
                     className="text-[10px] tracking-widest uppercase px-2 py-0.5 rounded popular-badge">Popular</motion.span>
                 )}
               </div>
               <p className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1">
-                <span className={`text-base md:text-lg font-normal ${plan.featured ? "text-violet-400/60" : "text-white/40"}`}>$</span>{plan.price}
+                <span className={`text-base md:text-lg font-normal ${plan.featured ? "text-cyan-400/60" : "text-white/40"}`}>$</span>{plan.price}
               </p>
               <p className="text-white/35 text-xs mb-6 leading-relaxed">{plan.desc}</p>
               <ul className="space-y-2.5 mb-8 flex-1">
                 {plan.features.map(f => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-white/55">
-                    <span className={`w-1 h-1 rounded-full shrink-0 ${plan.featured ? "bg-violet-400/60" : "bg-white/25"}`} />
+                    <span className={`w-1 h-1 rounded-full shrink-0 ${plan.featured ? "bg-cyan-400/60" : "bg-white/25"}`} />
                     {f}
                   </li>
                 ))}
               </ul>
               <motion.a href="#cta" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 className={`block text-center py-2.5 rounded-md text-sm no-underline transition-colors duration-200 ${
-                  plan.featured ? "btn-purple" : "text-white/60 border border-white/10 hover:border-violet-500/25 hover:text-white"
+                  plan.featured ? "btn-purple" : "text-white/60 border border-white/10 hover:border-cyan-400/25 hover:text-white"
                 }`}>
                 Pre-order {plan.name}
               </motion.a>
@@ -512,7 +512,7 @@ const compCols = [
 ]
 
 function Check({ v }: { v: boolean | string }) {
-  if (v === true)      return <span className="text-violet-400 font-bold">✓</span>
+  if (v === true)      return <span className="text-cyan-400 font-bold">✓</span>
   if (v === false)     return <span className="text-white/15">—</span>
   return <span className="text-white/35 text-xs">Partial</span>
 }
@@ -531,8 +531,8 @@ function Comparison() {
               <tr>
                 <th className="text-left text-white/30 text-xs font-normal pb-5 pr-8 w-40">Feature</th>
                 {compCols.map(c => (
-                  <th key={c.name} className={`text-center pb-5 px-4 text-sm font-semibold ${c.highlight ? "text-violet-400" : "text-white/40"}`}>
-                    {c.highlight && <span className="block text-[10px] tracking-widest uppercase text-violet-500/60 mb-1">⭐ Best</span>}
+                  <th key={c.name} className={`text-center pb-5 px-4 text-sm font-semibold ${c.highlight ? "text-cyan-400" : "text-white/40"}`}>
+                    {c.highlight && <span className="block text-[10px] tracking-widest uppercase text-cyan-400/60 mb-1">⭐ Best</span>}
                     {c.name}
                   </th>
                 ))}
@@ -544,7 +544,7 @@ function Comparison() {
                   style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                   <td className="py-3.5 pr-8 text-white/55">{feat}</td>
                   {compCols.map(c => (
-                    <td key={c.name} className={`text-center py-3.5 px-4 ${c.highlight ? "bg-violet-950/20" : ""}`}>
+                    <td key={c.name} className={`text-center py-3.5 px-4 ${c.highlight ? "bg-cyan-950/20" : ""}`}>
                       <Check v={c.values[fi]} />
                     </td>
                   ))}
@@ -574,7 +574,7 @@ function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {testimonials.map((t, i) => (
             <motion.div key={t.name} {...fadeUp(i * 0.12)} whileHover={{ y: -4, transition: { duration: 0.2 } }}>
-              <motion.p className="text-violet-400/50 text-2xl mb-3"
+              <motion.p className="text-cyan-400/50 text-2xl mb-3"
                 initial={{ opacity: 0, rotate: -10 }} whileInView={{ opacity: 1, rotate: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.12 }}>&ldquo;</motion.p>
               <p className="text-white/60 text-sm leading-relaxed mb-5">{t.quote}</p>
@@ -615,12 +615,12 @@ function FAQ() {
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-5 py-4 text-left focus:outline-none group"
-                style={{ background: open === i ? "rgba(124,58,237,0.08)" : "transparent" }}>
-                <span className={`text-sm font-medium transition-colors duration-200 ${open === i ? "text-violet-300" : "text-white/75 group-hover:text-white"}`}>
+                style={{ background: open === i ? "rgba(0,229,255,0.06)" : "transparent" }}>
+                <span className={`text-sm font-medium transition-colors duration-200 ${open === i ? "text-cyan-300" : "text-white/75 group-hover:text-white"}`}>
                   {faq.q}
                 </span>
                 <motion.span animate={{ rotate: open === i ? 45 : 0 }} transition={{ duration: 0.2 }}
-                  className={`text-lg shrink-0 ml-4 transition-colors ${open === i ? "text-violet-400" : "text-white/30"}`}>+</motion.span>
+                  className={`text-lg shrink-0 ml-4 transition-colors ${open === i ? "text-cyan-400" : "text-white/30"}`}>+</motion.span>
               </button>
               <AnimatePresence initial={false}>
                 {open === i && (
@@ -671,7 +671,7 @@ function CTA() {
                 <input
                   type="email" required value={email} onChange={e => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="flex-1 px-4 py-3 rounded-md text-sm text-white placeholder-white/25 focus:outline-none focus:ring-1 focus:ring-violet-500/50"
+                  className="flex-1 px-4 py-3 rounded-md text-sm text-white placeholder-white/25 focus:outline-none focus:ring-1 focus:ring-cyan-400/40"
                   style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}
                 />
                 <motion.button type="submit" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
@@ -682,7 +682,7 @@ function CTA() {
             ) : (
               <motion.div key="done" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
                 className="text-center py-3">
-                <p className="text-violet-300 font-medium text-sm">🎉 You&apos;re on the list — we&apos;ll email you at <strong>{email}</strong></p>
+                <p className="text-cyan-300 font-medium text-sm">🎉 You&apos;re on the list — we&apos;ll email you at <strong>{email}</strong></p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -725,11 +725,11 @@ function StickyBar() {
       {visible && (
         <motion.div initial={{ y: 80 }} animate={{ y: 0 }} exit={{ y: 80 }} transition={{ duration: 0.3, ease }}
           className="fixed bottom-0 left-0 right-0 z-40 md:hidden px-4 py-3"
-          style={{ background: "rgba(5,5,5,0.95)", borderTop: "1px solid rgba(139,92,246,0.15)", backdropFilter: "blur(12px)" }}>
+          style={{ background: "rgba(2,12,16,0.96)", borderTop: "1px solid rgba(0,229,255,0.12)", backdropFilter: "blur(12px)" }}>
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-white text-sm font-semibold">Covo Pro</p>
-              <p className="text-violet-400 text-xs">From $1,299 · Ships Q3 2026</p>
+              <p className="text-cyan-400 text-xs">From $1,299 · Ships Q3 2026</p>
             </div>
             <motion.a href="#cta" whileTap={{ scale: 0.96 }}
               className="no-underline btn-purple px-5 py-2.5 rounded-full text-xs font-semibold whitespace-nowrap">
@@ -767,7 +767,7 @@ function Toast() {
           initial={{ opacity: 0, y: 12, x: 0 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.3, ease }}
           className="fixed bottom-20 md:bottom-6 left-4 z-50 flex items-center gap-3 px-4 py-3 rounded-xl text-sm pointer-events-none"
-          style={{ background: "#111", border: "1px solid rgba(139,92,246,0.2)", boxShadow: "0 4px 24px rgba(0,0,0,0.3)" }}>
+          style={{ background: "#06181e", border: "1px solid rgba(0,229,255,0.18)", boxShadow: "0 4px 24px rgba(0,0,0,0.4)" }}>
           <span className="w-2 h-2 rounded-full bg-green-400 shrink-0 animate-pulse" />
           <span className="text-white/70">Someone in <strong className="text-white">{city}</strong> just pre-ordered</span>
         </motion.div>
