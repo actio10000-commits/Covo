@@ -123,7 +123,7 @@ function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight md:tracking-[-3px] leading-[1.0] md:leading-[0.95] max-w-4xl mb-6 text-white"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight md:tracking-[-3px] leading-[1.0] md:leading-[0.95] max-w-4xl mb-6 text-white"
         >
           Your home,<br />
           <span className="hero-gradient-text">on autopilot.</span>
@@ -132,7 +132,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35, ease }}
-          className="text-white/45 text-sm md:text-lg max-w-sm md:max-w-md mb-10 leading-relaxed font-light"
+          className="text-white/45 text-sm md:text-lg max-w-sm md:max-w-md mb-10 leading-relaxed font-normal"
         >
           Covo follows voice commands, carries things around your home,
           and learns your daily routines over time.
@@ -174,7 +174,7 @@ function Features() {
       <div className="max-w-5xl mx-auto">
         <motion.div {...fadeUp()} className="mb-12 md:mb-20">
           <p className="section-label">Capabilities</p>
-          <h2 className="text-2xl md:text-4xl font-light tracking-tight text-white">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white">
             Built for the way you live.
           </h2>
         </motion.div>
@@ -213,7 +213,7 @@ function HowItWorks() {
       <div className="max-w-5xl mx-auto">
         <motion.div {...fadeUp()} className="mb-12 md:mb-20">
           <p className="section-label">Process</p>
-          <h2 className="text-2xl md:text-4xl font-light tracking-tight text-white">Up in minutes.</h2>
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white">Up in minutes.</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -267,7 +267,7 @@ function Pricing() {
       <div className="max-w-5xl mx-auto">
         <motion.div {...fadeUp()} className="mb-12 md:mb-20">
           <p className="section-label">Pricing</p>
-          <h2 className="text-2xl md:text-4xl font-light tracking-tight text-white">One robot. Three configs.</h2>
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white">One robot. Three configs.</h2>
           <p className="text-white/35 text-sm mt-3">Ships Q3 2026. Lock in launch pricing now.</p>
         </motion.div>
 
@@ -295,7 +295,7 @@ function Pricing() {
                   </motion.span>
                 )}
               </div>
-              <p className="text-3xl md:text-4xl font-light tracking-tight text-white mb-1">
+              <p className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1">
                 <span className={`text-base md:text-lg ${plan.featured ? "text-violet-400/60" : "text-white/40"}`}>$</span>
                 {plan.price}
               </p>
@@ -347,7 +347,7 @@ function Testimonials() {
               >
                 &ldquo;
               </motion.p>
-              <p className="text-white/60 text-sm leading-relaxed mb-5 font-light">{t.quote}</p>
+              <p className="text-white/60 text-sm leading-relaxed mb-5">{t.quote}</p>
               <p className="text-white/30 text-xs">{t.name} · {t.role}</p>
             </motion.div>
           ))}
@@ -370,7 +370,7 @@ function CTA() {
         >
           <div>
             <p className="section-label mb-4 md:mb-5">Reserve yours</p>
-            <h2 className="text-2xl md:text-5xl font-light tracking-tight text-white leading-tight">
+            <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-white leading-tight">
               Your home should<br />work for you.
             </h2>
             <p className="text-white/35 text-sm mt-4 max-w-sm leading-relaxed">
