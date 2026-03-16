@@ -5,7 +5,6 @@ import "./globals.css"
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
   display: "swap",
 })
 
@@ -24,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={spaceMono.variable}>
+      <body className={spaceGrotesk.className}>{children}</body>
     </html>
   )
 }

@@ -16,7 +16,7 @@
   body {
     background: #050505;
     color: #ffffff;
-    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: inherit;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
