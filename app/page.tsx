@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Waves } from "@/components/ui/wave-background"
 
@@ -25,52 +25,106 @@ const fadeIn = (delay = 0) => ({
 // ── NAV ──────────────────────────────────────────────────────────────────────
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80)
+      if (window.scrollY <= 80) setOpen(false)
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  const navLinks = ["Features", "How It Works", "Pricing"]
 
   return (
     <>
-      <motion.nav
+      {/* Outer wrapper centers the pill when scrolled */}
+      <motion.div
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-16 py-4"
-        style={{ background: "rgba(5,5,5,0.88)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}
+        className={`fixed left-0 right-0 z-50 flex pointer-events-none transition-all duration-500 ${
+          scrolled ? "top-4 justify-center px-4" : "top-0 justify-stretch"
+        }`}
       >
-        <a href="#" className="no-underline font-semibold text-base tracking-tight logo-gradient">Covo</a>
-
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8 list-none">
-          {["Features", "How It Works", "Pricing"].map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                className="nav-link text-white/50 no-underline text-sm transition-colors duration-200">
-                {item}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="#cta" className="no-underline text-sm px-4 py-2 rounded-md transition-all duration-200 cta-pill">
-              Pre-order
-            </a>
-          </li>
-        </ul>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden flex flex-col gap-1.5 p-2 rounded-md focus:outline-none"
-          aria-label="Toggle menu"
+        <motion.nav
+          animate={{ borderRadius: scrolled ? 9999 : 0 }}
+          transition={{ duration: 0.45, ease }}
+          className={`pointer-events-auto flex items-center justify-between transition-all duration-300 ${
+            scrolled ? "px-5 py-3 gap-6" : "w-full px-5 md:px-16 py-4"
+          }`}
+          style={
+            scrolled
+              ? { background: "#ffffff", boxShadow: "0 4px 32px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06)" }
+              : { background: "rgba(5,5,5,0.88)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(139,92,246,0.12)" }
+          }
         >
-          <motion.span animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }} transition={{ duration: 0.25 }}
-            className="block w-5 h-px bg-white/70" />
-          <motion.span animate={{ opacity: open ? 0 : 1 }} transition={{ duration: 0.2 }}
-            className="block w-5 h-px bg-white/70" />
-          <motion.span animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }} transition={{ duration: 0.25 }}
-            className="block w-5 h-px bg-white/70" />
-        </button>
-      </motion.nav>
+          {/* Logo */}
+          <a href="#"
+            className={`no-underline font-bold text-base tracking-tight transition-colors duration-300 ${
+              scrolled ? "text-gray-900" : "logo-gradient"
+            }`}
+          >
+            Covo
+          </a>
 
-      {/* Mobile menu */}
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-6 list-none">
+            {navLinks.map((item) => (
+              <li key={item}>
+                <a
+                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className={`no-underline text-sm transition-colors duration-300 ${
+                    scrolled
+                      ? "text-gray-500 hover:text-gray-900"
+                      : "nav-link text-white/50 hover:text-white"
+                  }`}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <a
+            href="#cta"
+            className={`hidden md:block no-underline text-sm px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+              scrolled
+                ? "bg-gray-900 text-white hover:bg-gray-700"
+                : "cta-pill"
+            }`}
+          >
+            Pre-order
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded-md focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {[
+              { rotate: open ? 45 : 0, y: open ? 8 : 0 },
+              null,
+              { rotate: open ? -45 : 0, y: open ? -8 : 0 },
+            ].map((anim, i) =>
+              anim === null ? (
+                <motion.span key={i} animate={{ opacity: open ? 0 : 1 }} transition={{ duration: 0.2 }}
+                  className={`block w-5 h-px ${scrolled ? "bg-gray-700" : "bg-white/70"}`} />
+              ) : (
+                <motion.span key={i} animate={anim} transition={{ duration: 0.25 }}
+                  className={`block w-5 h-px ${scrolled ? "bg-gray-700" : "bg-white/70"}`} />
+              )
+            )}
+          </button>
+        </motion.nav>
+      </motion.div>
+
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -79,12 +133,19 @@ function Nav() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease }}
             className="fixed top-[57px] left-0 right-0 z-40 flex flex-col px-5 py-6 gap-5 md:hidden"
-            style={{ background: "rgba(5,5,5,0.97)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}
+            style={{
+              background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(5,5,5,0.97)",
+              borderBottom: "1px solid rgba(139,92,246,0.12)",
+            }}
           >
-            {["Features", "How It Works", "Pricing"].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+            {navLinks.map((item) => (
+              <a key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
                 onClick={() => setOpen(false)}
-                className="text-white/60 no-underline text-base hover:text-white transition-colors">
+                className={`no-underline text-base transition-colors ${
+                  scrolled ? "text-gray-700 hover:text-gray-900" : "text-white/60 hover:text-white"
+                }`}
+              >
                 {item}
               </a>
             ))}
