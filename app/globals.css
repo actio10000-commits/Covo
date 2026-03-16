@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #050505;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+
+  /* ── Brand gradient (purple → blue) ── */
+  .logo-gradient {
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient-text {
+    background: linear-gradient(135deg, #c4b5fd 0%, #818cf8 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Hero ambient blobs ── */
+  .hero-blob-purple {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-60%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-blob-blue {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(96,165,250,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── Primary button ── */
+  .btn-purple {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: #fff;
+    box-shadow: 0 0 24px rgba(124,58,237,0.3);
+  }
+
+  .btn-purple:hover {
+    background: linear-gradient(135deg, #6d28d9, #4338ca);
+    box-shadow: 0 0 32px rgba(124,58,237,0.45);
+    transform: translateY(-1px);
+  }
+
+  /* ── Nav pre-order pill ── */
+  .cta-pill {
+    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(79,70,229,0.15));
+    color: #a78bfa;
+    border: 1px solid rgba(139,92,246,0.25);
+  }
+
+  .cta-pill:hover {
+    background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(79,70,229,0.25));
+    border-color: rgba(139,92,246,0.45);
+    color: #c4b5fd;
+  }
+
+  /* ── Section utilities ── */
+  .section-border {
+    border-top: 1px solid rgba(139,92,246,0.1);
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(167,139,250,0.6);   /* violet-400 at 60% */
+    margin-bottom: 1rem;
+  }
+
+  /* ── Feature grid ── */
+  .feature-grid {
+    background: rgba(139,92,246,0.08);
+  }
+
+  .feature-card {
+    background: #050505;
+    transition: background 0.2s;
+  }
+
+  .feature-card:hover {
+    background: rgba(124,58,237,0.06);
+  }
+
+  /* ── Pricing cards ── */
+  .pricing-grid {
+    background: rgba(139,92,246,0.08);
+  }
+
+  .pricing-card {
+    background: #050505;
+  }
+
+  .pricing-card-featured {
+    background: linear-gradient(160deg, rgba(109,40,217,0.12) 0%, rgba(79,70,229,0.08) 100%);
+  }
+
+  .popular-badge {
+    background: rgba(124,58,237,0.2);
+    border: 1px solid rgba(139,92,246,0.35);
+    color: #a78bfa;
+  }
+
+  /* ── CTA box ── */
+  .cta-box {
+    background: linear-gradient(160deg, rgba(109,40,217,0.1) 0%, rgba(79,70,229,0.06) 50%, rgba(96,165,250,0.06) 100%);
+    border: 1px solid rgba(139,92,246,0.18);
+  }
+}
